@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "USUARIO")
+@Table(name = "usuario")
 public class Usuario extends AbstractEntity<BigInteger> {
 	
 	@Column(name= "nome", nullable = false, length = 60)
@@ -20,10 +20,10 @@ public class Usuario extends AbstractEntity<BigInteger> {
 	@Column(name= "password", nullable = false, length = 150)
 	private String password;
 	
-	@Column(name= "deletado", nullable = false, length = 1, columnDefinition = "DEFAULT N")
-	@Enumerated(EnumType.STRING)
-	private Deletado deletado;
-	
+//	@Column(name= "deletado", nullable = false, columnDefinition = "DEFAULT N")
+//	@Enumerated(EnumType.STRING)
+//	private Deletado deletado;
+		
 	@OneToMany
 	private List<Noticia> noticias;
 	
@@ -51,6 +51,11 @@ public class Usuario extends AbstractEntity<BigInteger> {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+//	public Deletado getDeletado() {
+//		return deletado;
+//	}
+//	public void setDeletado(Deletado deletado) {
+//		this.deletado = deletado;
+//	}	
+//	
 }

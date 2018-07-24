@@ -7,11 +7,11 @@ import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "NOTICIA")
+@Table(name = "noticia")
 public class Noticia extends AbstractEntity<BigInteger> {
 
 	@ManyToOne
-	@JoinColumn (name = "fk_usuario_id")
+//	@JoinColumn (name = "fk_usuario_id")
 	private Usuario autor_id;
 	
 	@Column(name = "titulo", nullable = false, length = 255)

@@ -4,18 +4,29 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<header th:fragment="cabecalho">
-		<nav
-			class="navbar navbar-inverse navbar navbar-dark bg-dark fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="btn btn-dark navbar-toggle pull-left">
-						<i class="oi oi-menu"></i>
-					</button>
-					<a class="navbar-brand " href="#">BTCC - Dashboard</a>
-				</div>
-			</div>
-		</nav>
-	</header>
+<header th:fragment="cabecalho-site">
+    <div class="nav-menu fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a class="navbar-brand" href="/"><img src="/image/btcc-logo.png" class="img-fluid" alt="logo"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="/">HOME</a></li><span>|</span>
+                                <li class="nav-item"><a class="nav-link" href="/empresa">EMPRESA</a></li><span>|</span>
+                                <li class="nav-item"><a class="nav-link" href="/premios">PR&Ecirc;MIOS</a></li><span>|</span>
+                                <li class="nav-item"><a class="nav-link" href="//btcc.referrals.selectminds.com/">VAGAS</a></li><span>|</span>
+                                <li class="nav-item"><a class="nav-link" href="//intranet.btcc.com.br">INTRANET</a></li><span>|</span>
+                                <li class="nav-item"><a class="nav-link" href="/noticias">NOT&Iacute;CIAS</a></li><span>|</span>
+                                <li class="nav-item"><a class="nav-link" href="/contato">CONTATO</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html layout:decorate="~{/admin/template}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Usuários</span></li>
+				</ul>
+				<a class="btn btn-primary btn-md" href="/admin/usuarios/cadastrar"
+					role="button"> <span class="oi oi-plus" title="Cadastro"
+					aria-hidden="true"></span> <span>Novo Usuário</span>
+				</a>
+			</div>
+		</nav>
+
+		<div class="container" id="listagem">
+
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-sm">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome</th>
+							<th>Ação</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="d : ${usuario}">
+							<td th:text="${d.id}">0</td>
+							<td th:text="${d.nome}">Nome</td>
+							<td colspan="2"><a class="btn btn-info btn-sm"
+								href="/departamentos/editar/3" role="button"> <span
+									class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+							</a>
+								<button id="btn_departamentos/excluir/3" type="button"
+									class="btn btn-danger btn-sm">
+									<span class="oi oi-circle-x" title="Exclusão desabilitada"
+										aria-hidden="true"></span>
+								</button></td>
+						</tr>						
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

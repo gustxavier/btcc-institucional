@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html layout:decorate="~{/admin/template}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Cadastrar Usuário</span></li>
+				</ul>
+				<a class="btn btn-primary btn-md" href="/admin/usuarios/listar"
+					role="button"> <span class="oi oi-spreadsheet" title="Listar"
+					aria-hidden="true"></span> <span>Listar Departamentos</span>
+				</a>
+			</div>
+		</nav>
+
+		<div class="container" id="cadastro">
+			<form th:action="@{/admin/usuarios/salvar}" th:object="${usuario}"
+				method="POST">
+				<div class="form-row ">
+					<div class="form-group col-md-6">
+						<label for="nome">Usuário</label> <input type="text"
+							class="form-control" id="nome" placeholder="Nome"
+							autofocus="autofocus" th:field="*{nome}" />
+					</div>
+				</div>
+				<div class="form-row ">
+					<div class="form-group col-md-6">
+						<label for="nome">Email</label> <input type="email"
+							class="form-control" id="nome" placeholder="Email"
+							autofocus="autofocus" th:field="*{email}" />
+					</div>
+				</div>
+				<div class="form-row ">
+					<div class="form-group col-md-4">
+						<label for="nome">Password</label> <input type="password"
+							class="form-control" id="nome" placeholder="Password"
+							autofocus="autofocus" th:field="*{password}" />
+					</div>
+				</div>
+				<input type="hidden" id="id" name="id" value="" />
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>
