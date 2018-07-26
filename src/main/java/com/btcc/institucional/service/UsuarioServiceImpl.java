@@ -44,4 +44,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return dao.findAll();
 	}
 
+	@Override
+	public boolean usuarioTemNoticias(BigInteger id) {
+//		if(buscaPorId(id).getNoticias().isEmpty()) {
+//			return false;
+//		}
+		return false;
+	}
+
 }

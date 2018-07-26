@@ -15,4 +15,6 @@ void salvar (Usuario usuario);
 	Usuario buscaPorId (BigInteger id);
 	
 	List<Usuario> buscarTodos();
+	
+	boolean usuarioTemNoticias(BigInteger id);
 }

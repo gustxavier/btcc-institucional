@@ -14,5 +14,7 @@ public interface NoticiaDao {
 	
 	Noticia findById(BigInteger id);
 	
+	List<Noticia> findFirst();
+	
 	List<Noticia> findAll();
 }

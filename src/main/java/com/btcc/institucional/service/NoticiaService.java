@@ -14,5 +14,7 @@ public interface NoticiaService {
 	
 	Noticia buscaPorId (BigInteger id);
 	
+	List<Noticia> buscarPrimeiro();
+	
 	List<Noticia> buscarTodos();
 }

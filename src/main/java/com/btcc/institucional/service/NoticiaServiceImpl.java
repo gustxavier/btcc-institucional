@@ -43,5 +43,11 @@ public class NoticiaServiceImpl implements NoticiaService{
 	public List<Noticia> buscarTodos() {
 		return dao.findAll();
 	}
+	
+
+	@Override @Transactional(readOnly = true)
+	public List<Noticia> buscarPrimeiro() {
+		return dao.findFirst();
+	}
 
 }

@@ -41,6 +41,13 @@ public abstract class AbstractDao<T, PK extends Serializable> {
 				.getResultList();
 	}
 	
+	public List<T> findFirst(){
+		return entityManager
+				.createQuery("from " + entityClass.getSimpleName() + " ORDER BY id DESC", entityClass)
+				.setMaxResults(1)
+				.getResultList();
+	}
+	
 	protected List<T> createQuery(String jpql, Object... params){
 		TypedQuery<T> query = entityManager.createQuery(jpql, entityClass);
 		for(int i = 0; i < params.length; i++) {

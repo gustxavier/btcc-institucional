@@ -5,39 +5,34 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "noticia")
 public class Noticia extends AbstractEntity<BigInteger> {
 
-	@ManyToOne
-//	@JoinColumn (name = "fk_usuario_id")
-	private Usuario autor_id;
-	
 	@Column(name = "titulo", nullable = false, length = 255)
 	private String titulo;
 	
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data", nullable = false, columnDefinition = "DATE")
 	private LocalDate data;
 	
 	@Column(name = "conteudo", nullable = true)
 	private String conteudo;
 	
-	@Column(name = "deletado", nullable = false, columnDefinition = "DEFAULT N")
-	@Enumerated(EnumType.STRING)
-	private Deletado deletado;
+	@Column(name = "imagem", nullable = true)
+	private String imagem;
 	
-	@Column(name = "publicado", nullable = false, columnDefinition = "DEFAULT N")
-	@Enumerated(EnumType.STRING)
-	private Publicado publicado;
-
-	public Usuario getAutor_id() {
-		return autor_id;
-	}
-
-	public void setAutor_id(Usuario autor_id) {
-		this.autor_id = autor_id;
-	}
+//	@Column(name = "deletado", nullable = false, columnDefinition = "DEFAULT N")
+//	@Enumerated(EnumType.STRING)
+//	private Deletado deletado;
+//	
+//	@Column(name = "publicado", nullable = false, columnDefinition = "DEFAULT N")
+//	@Enumerated(EnumType.STRING)
+//	private Publicado publicado;
 
 	public String getTitulo() {
 		return titulo;
@@ -62,22 +57,30 @@ public class Noticia extends AbstractEntity<BigInteger> {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
-
-	public Deletado getDeletado() {
-		return deletado;
+	
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setDeletado(Deletado deletado) {
-		this.deletado = deletado;
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
-	public Publicado getPublicado() {
-		return publicado;
-	}
-
-	public void setPublicado(Publicado publicado) {
-		this.publicado = publicado;
-	}
+//	public Deletado getDeletado() {
+//		return deletado;
+//	}
+//
+//	public void setDeletado(Deletado deletado) {
+//		this.deletado = deletado;
+//	}
+//
+//	public Publicado getPublicado() {
+//		return publicado;
+//	}
+//
+//	public void setPublicado(Publicado publicado) {
+//		this.publicado = publicado;
+//	}
 
 	
 }
