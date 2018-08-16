@@ -10,7 +10,7 @@
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><i class="oi oi-caret-right"></i>
-						<span>Cadastrar Notícias</span></li>
+						<span>Notícias</span></li>
 				</ul>
 			</div>
 			<a class="btn btn-primary btn-md" href="/admin/noticias/listar"
@@ -19,45 +19,56 @@
 			</a>
 		</nav>
 
-		<div class="container" id="cadastro">
+		<div class="container" id="upload-imagem">
 
 			<div th:replace="admin/fragments/alert"></div>
 
-			<form th:action="@{/admin/noticias/upload}" th:object="${noticia}"
-				method="POST" enctype="multipart/form-data">
+			<form method="POST"
+				th:action="${noticia.id == null} ? @{/admin/noticias/salvar} : @{/admin/noticias/editar}"
+				th:object="${noticia}" enctype="multipart/form-data">
 				<div class="form-row">
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-8">
+						<div class="image">
+							<img th:src="${noticia.imagem == null} ? @{/image/no-image.png} : @{'/uploads/site/noticias/' + ${noticia.imagem}}">
+						</div>
+						<input type="file" class="form-control" id="imagem"
+							placeholder="título" autofocus="autofocus" name="file" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
 						<label for="nome">Título da Notícia</label> <input type="text"
-							class="form-control" id="titulo" placeholder="título"
+							class="form-control" id="titulo" placeholder="Digite aqui o título"
 							autofocus="autofocus" th:field="*{titulo}" />
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-12">
+						<label for="nome">Resumo</label> <input type="text"
+							class="form-control" id="retranca" placeholder="Digite aqui o resumo"
+							autofocus="autofocus" th:field="*{retranca}" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-2">
 						<label for="nome">Data</label> <input class="form-control mr-sm-2"
 							type="date" aria-label="Search" th:field="*{data}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="nome">Imagem</label> <input
-							class="form-control mr-sm-2" type="file" autofocus="autofocus"
-							 />
-						<div class="invalid-feedback"></div>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="nome">Conteúdo</label>
-						<textarea class="form-control" id="titulo" autofocus="autofocus"
+					<div class="form-group col-md-12">
+						<label for="nome">Texto</label>
+						<textarea class="form-control" id="editor-conteudo" autofocus="autofocus"
 							th:field="*{conteudo}"></textarea>
 					</div>
 				</div>
 				<input type="hidden" id="id" th:field="*{id}" />
+				<input type="hidden" id="file" th:field="*{imagem}" />
 				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
 			</form>
 		</div>
+		<script>CKEDITOR.replace( 'editor-conteudo' );</script>
 	</section>
 </body>
 </html>

@@ -18,7 +18,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #d6619c;
+	color: #347288;
 }
 
 h1 {
@@ -55,12 +55,18 @@ h5 {
 }
 
 p {
+	font-size: 18px;
 	color: #ffffff;
 }
 
 p.lead {
 	color: #e38cb7;
 	margin-bottom: 2rem;
+}
+
+hr {
+	width: 100%;
+	margin: 0px auto 15px auto;
 }
 
 .text-primary {
@@ -117,7 +123,7 @@ a.btn-btcc-transparent {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active,
 	.btn-primary:not ([disabled] ):not (.disabled ).active, .btn-primary:not
-	([disabled] ):not (.disabled ):active, .show>.btn-primary.dropdown-toggle
+	 ([disabled] ):not (.disabled ):active, .show>.btn-primary.dropdown-toggle
 	{
 	background-image: linear-gradient(122deg, #fd378e 0%, #e54595 100%);
 	box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.3);
@@ -176,7 +182,7 @@ a.btn-btcc-transparent {
 	height: inherit;
 }
 
-.slick-player .slick-prev, .slick-player .slick-next {
+.slick-player .slick-prev, .slick-player .slick-next, .slick-dots {
 	display: none !important;
 }
 
@@ -200,6 +206,44 @@ a.btn-btcc-transparent {
 	.image.first img {
 		position: relative;
 	}
+}
+
+/*
+* #.# LOGIN
+*/
+#form-signin {
+	width: 50%;
+	margin: 100px auto 150px;
+	border: 1px solid #ccc;
+	padding: 60px 35px;
+	background-color: #5A8D9E;
+	box-shadow: 0px 4px 10px #ccc;
+}
+
+#form-signin img {
+	margin: auto;
+	display: block;
+	margin-bottom: 70px;
+}
+
+#form-signin input {
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+#form-signin .btn {
+	background: #fff;
+	color: #347288;
+	border-radius: 25px;
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#form-signin>footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 /*
@@ -261,6 +305,12 @@ a.btn-btcc-transparent {
 	}
 	.navbar-nav .nav-item {
 		text-align: center;
+	}
+	.navbar-nav span {
+		display: none;
+	}
+	#navbar {
+		padding: 20px 0;
 	}
 }
 
@@ -331,7 +381,6 @@ a.btn-btcc-transparent {
 }
 
 #trabalhe-conosco .vagas-pcd p {
-	font-family: roboto;
 	max-width: 70%;
 	font-weight: 600;
 	font-size: 18px;
@@ -396,8 +445,12 @@ a.btn-btcc-transparent {
 	font-family: SimplonLight;
 	font-weight: 600;
 	line-height: 2.8em;
-	margin: 85px 0;
+	margin: 85px 0px 30px 0;
 	padding-left: 0px;
+}
+
+#onde-estamos a {
+	margin-bottom: 75px;
 }
 
 #onde-estamos .cidades i {
@@ -420,6 +473,8 @@ a.btn-btcc-transparent {
 
 .banner-trabalhe-conosco img {
 	max-width: 100%;
+    bottom: 0;
+    position: absolute;
 }
 
 .banner-trabalhe-conosco .vagas {
@@ -488,22 +543,43 @@ a.btn-btcc-transparent {
 	padding: 35px 60px;
 	border-radius: 10px;
 	background-color: #D1723A;
+	display: inline-grid;
 }
 
 #empresa .box-valores p {
 	color: #ffffff;
 }
 
+#frame-youtube .quem-a-frente {
+	padding: 55px 10px 0px 10px;
+}
+
+#frame-youtube .quem-a-frente p {
+	color: #367389;
+	width: 100%;
+}
+
+#frame-youtube .quem-a-frente .title {
+	color: #367389;
+	line-height: 1.8em;
+}
+
+#frame-youtube .quem-a-frente .responsavel {
+	margin-bottom: -5px;
+	color: #d2753b;
+}
+
 #premios {
 	margin-top: 50px;
+	background-color: #ececec !important
 }
 
 #premios .content {
-	padding: 105px 30px;
+	padding: 40px 30px;
 }
 
 #premios .slick-prev:before, .slick-next:before {
-	color: #afafaf;
+	display: none !important
 }
 
 #premios div.slick-slide {
@@ -520,6 +596,7 @@ a.btn-btcc-transparent {
 
 #premios .slick-slide img {
 	margin: auto;
+	max-width: 100%;
 }
 
 @media ( max-width : 767px) {
@@ -547,7 +624,7 @@ a.btn-btcc-transparent {
 	display: table;
 }
 
-#contadores i.fa-bookmark-o {
+#contadores i.fa-paper-plane {
 	color: #dd9446;
 }
 
@@ -623,15 +700,78 @@ a.btn-btcc-transparent {
 /*
 * #.# Notícias
 */
-#noticias .title p {
+#noticias .title p,
+#single-post .title p {
 	margin: 60px 0px 30px 0;
 	font-size: 25px;
 	font-weight: 600;
 	color: #367389;
 }
 
+#noticias .retranca,
+#single-post .retranca {
+	text-transform: uppercase;
+	color: #367389;
+	font-weight: 600;
+	font-size: 15px;
+    margin-bottom: 12px;
+}
+
+#noticias h2.title {
+	color: #888888;
+	font-size: 25px;
+}
+
+#single-post h2.title{
+	color: #888888;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+#single-post img{
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+#single-post .content{
+    padding: 80px;
+}
+
+#noticias .block-notice{
+    background: #f5f5f5;
+    padding: 40px 0;
+    margin: 45px 0;
+}
+
+#noticias .block-notice .title{
+	font-size: 20px;
+}
+
+#noticias .block-notice img{
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#noticias .all .row{
+    margin-bottom: 50px;
+}
+
+#noticias p,
+#single-post p {
+	color: #888888;
+}
+
 #noticias img {
-	max-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    height: 325px;
+}
+
+#noticias .all img {
+    height: 125px;
 }
 
 #noticias a.noticia-link {
@@ -642,6 +782,11 @@ a.btn-btcc-transparent {
 /*
 * #.# Contato
 */
+
+#popup{
+	padding: 370px 0px;
+}
+
 #contato .title {
 	margin: 60px 0px 30px 0;
 	font-size: 25px;
@@ -714,6 +859,15 @@ a.btn-btcc-transparent {
 	height: 430px;
 }
 
+@media ( max-width :500px) {
+	.banner-trabalhe-conosco img {
+		display: none;
+	}
+	.banner-trabalhe-conosco a.btn-btcc {
+		font-size: 20px;
+	}
+}
+
 /*
 * #.# Footer
 */
@@ -746,6 +900,10 @@ footer a, footer p {
 
 footer p {
 	margin-top: 25px;
+}
+
+footer p.text-center {
+	font-size: 14px;
 }
 
 footer a {
@@ -782,4 +940,46 @@ footer a.youtube {
 	div.footer {
 		text-align: center;
 	}
+	.banner-trabalhe-conosco .vagas-pcd {
+		display: block;
+	}
+	.banner-trabalhe-conosco .vagas p, .banner-trabalhe-conosco .vagas i {
+		text-align: center;
+	}
+	.banner-trabalhe-conosco .vagas i {
+		margin: 0px 0 20px 0px;
+	}
+}
+
+/*
+* #.# Login
+*/
+#login a.btn {
+	border: 2px solid;
+}
+
+/*
+* #.# 404 - Not Found
+*/
+#notfound {
+	padding: 200px 0;
+	margin: 80px 0;
+	background: #f5f5f5;
+}
+
+#notfound h1, #notfound h2 {
+	color: #555555;
+}
+
+#notfound h1 {
+	font-weight: 600;
+	font-size: 140px;
+}
+
+#notfound h2 {
+	font-size: 35px;
+}
+
+#notfound .back-home a {
+	margin-top: 50px;
 }

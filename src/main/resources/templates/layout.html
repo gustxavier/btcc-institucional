@@ -31,10 +31,39 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/style.css" rel="stylesheet" />
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '385634168616753');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=385634168616753&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110374889-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110374889-1');
+</script>
+
 </head>
 <body>
 
-	<header th:replace="fragments/header :: cabecalho-site">
+	<header th:replace="fragments/header :: cabecalho-site(${activeTab})">
 		<div>header</div>
 	</header>
 
@@ -47,16 +76,15 @@
 	</footer>
 
 	<!-- Bootstrap core JavaScript
-    ================================================== -->
+    ================================================== -->   
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/webjars/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/webjars/jQuery-Mask-Plugin/src/jquery.mask.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/webjars/slick/slick.min.js"></script>
 	<!-- 	Custom Script -->
-	<script src="/js/script.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
 	<script type="text/javascript">
 		
 	</script>

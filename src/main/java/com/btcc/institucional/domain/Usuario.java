@@ -1,6 +1,5 @@
 package com.btcc.institucional.domain;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,7 +8,7 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "usuario")
-public class Usuario extends AbstractEntity<BigInteger> {
+public class Usuario extends AbstractEntity<Long> {
 	
 	@Column(name= "nome", nullable = false, length = 60)
 	private String nome;
@@ -20,11 +19,16 @@ public class Usuario extends AbstractEntity<BigInteger> {
 	@Column(name= "password", nullable = false, length = 150)
 	private String password;
 	
-//	@Column(name= "deletado", nullable = false, columnDefinition = "DEFAULT N")
-//	@Enumerated(EnumType.STRING)
-//	private Deletado deletado;
+	private String passwordConfirm;
 		
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
 	@OneToMany
+	@JoinColumn(foreignKey = @ForeignKey( name = "none" ))
 	private List<Noticia> noticias;
 	
 	public List<Noticia> getNoticias() {
@@ -51,11 +55,4 @@ public class Usuario extends AbstractEntity<BigInteger> {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-//	public Deletado getDeletado() {
-//		return deletado;
-//	}
-//	public void setDeletado(Deletado deletado) {
-//		this.deletado = deletado;
-//	}	
-//	
 }

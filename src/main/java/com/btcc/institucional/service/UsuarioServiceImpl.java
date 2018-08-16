@@ -1,7 +1,5 @@
 package com.btcc.institucional.service;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +26,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public void excluir(BigInteger id) {
+	public void excluir(Long id) {
 		dao.delete(id);		
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Usuario buscaPorId(BigInteger id) {
+	public Usuario buscaPorId(Long id) {
 		return dao.findById(id);
 	}
 
@@ -44,12 +42,21 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return dao.findAll();
 	}
 
+//	@Override
+//	public boolean usuarioTemNoticias(BigInteger id) {
+////		if(buscaPorId(id).getNoticias().isEmpty()) {
+////			return false;
+////		}
+//		return false;
+//	}
+
 	@Override
-	public boolean usuarioTemNoticias(BigInteger id) {
-//		if(buscaPorId(id).getNoticias().isEmpty()) {
-//			return false;
-//		}
-		return false;
+	public String loginTemUsuario(Usuario usuario) {
+		List<Usuario> usuarios = dao.verifyLogin(usuario);
+		if(usuarios.isEmpty()) {
+			return "/login/error";
+		} 
+		return "/panel";
 	}
 
 }

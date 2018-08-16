@@ -1,6 +1,5 @@
 package com.btcc.institucional.dao;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import com.btcc.institucional.domain.Usuario;
@@ -10,9 +9,11 @@ public interface UsuarioDao {
 	
 	void update(Usuario usuario);
 	
-	void delete(BigInteger id);
+	void delete(Long id);
 	
-	Usuario findById(BigInteger id);
+	Usuario findById(Long id);
+	
+	List<Usuario> verifyLogin(Usuario usuario);
 	
 	List<Usuario> findAll();
 }

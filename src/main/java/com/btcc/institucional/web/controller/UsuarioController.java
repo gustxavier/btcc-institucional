@@ -1,7 +1,5 @@
 package com.btcc.institucional.web.controller;
 
-import java.math.BigInteger;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,7 +38,7 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("editar/{id}")
-	public String preEditar(@PathVariable("id") BigInteger id, ModelMap model) {
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
 		model.addAttribute("usuario", service.buscaPorId(id));
 		return "admin/usuario/cadastro";
 	}
@@ -53,7 +51,7 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") BigInteger id, ModelMap model) {
+	public String excluir(@PathVariable("id") Long id, ModelMap model) {
 			service.excluir(id);
 			model.addAttribute("success", "Usuário excluído com sucesso.");
 		return listar(model);

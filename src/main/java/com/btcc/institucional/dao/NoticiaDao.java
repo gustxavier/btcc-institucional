@@ -1,6 +1,5 @@
 package com.btcc.institucional.dao;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import com.btcc.institucional.domain.Noticia;;
@@ -10,11 +9,13 @@ public interface NoticiaDao {
 	
 	void update(Noticia noticia);
 	
-	void delete(BigInteger id);
+	void delete(Long id);
 	
-	Noticia findById(BigInteger id);
+	Noticia findById(Long id);
 	
 	List<Noticia> findFirst();
+	
+	List<Noticia> findBlockThreeNotice();
 	
 	List<Noticia> findAll();
 }

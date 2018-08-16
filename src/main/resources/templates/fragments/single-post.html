@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div layout:fragment="corpo">
+		<section class="banner-trabalhe-conosco">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-xs-12">
+						<img src="/uploads/site/imagens/pessoa-empresa-vagas.png" />
+					</div>
+					<div class="col-md-4 col-xs-12">
+						<h2 class="text-center">VENHA TRABALHAR CONOSCO</h2>
+					</div>
+					<div class="col-md-4 col-xs-12 vagas">
+						<a href="//btcc.referrals.selectminds.com/"
+							class="btn-btcc hvr-pop">VAGAS DISPONÍVEIS</a>
+						<div class="vagas-pcd">
+							<div class="col-md-10 col-xs-12">
+								<p class="vagas-pcd">TODAS AS VAGAS ESTÃO DISPONÍVEIS TAMBÉM
+									PARA PCD.</p>
+							</div>
+							<div class="col-md-2 col-xs-12">
+								<i class="fa fa-wheelchair" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="single-post">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 title">
+						<p>Notícias</p>
+					</div>
+				</div>
+				<div th:each="d : ${noticia}" class="row">
+					<div class="col-md-12">
+						<h3 th:text="${d.retranca}" class="retranca"></h3>
+						<h2 th:text="${d.titulo}" class="title"></h2>
+						<img th:src="${'/uploads/site/noticias/' + d.imagem}" />
+					</div>
+					<div class="col-md-12 content">
+						<div th:utext="${d.conteudo}"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

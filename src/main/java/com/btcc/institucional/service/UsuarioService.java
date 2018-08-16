@@ -1,6 +1,5 @@
 package com.btcc.institucional.service;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import com.btcc.institucional.domain.Usuario;
@@ -8,13 +7,15 @@ import com.btcc.institucional.domain.Usuario;
 public interface UsuarioService {
 void salvar (Usuario usuario);
 	
-	void editar (Usuario usuaraio);
+	void editar (Usuario usuario);
 	
-	void excluir (BigInteger id);
+	void excluir (Long id);
 	
-	Usuario buscaPorId (BigInteger id);
+	Usuario buscaPorId (Long id);
+	
+	String loginTemUsuario (Usuario usuario);
 	
 	List<Usuario> buscarTodos();
 	
-	boolean usuarioTemNoticias(BigInteger id);
+//	boolean usuarioTemNoticias(BigInteger id);
 }

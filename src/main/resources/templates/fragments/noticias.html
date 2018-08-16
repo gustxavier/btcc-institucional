@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-xs-12">
-						<img src="/image/pessoa-empresa-vagas.png" />
+						<img src="/uploads/site/imagens/pessoa-empresa-vagas.png" />
 					</div>
 					<div class="col-md-4 col-xs-12">
 						<h2 class="text-center">VENHA TRABALHAR CONOSCO</h2>
@@ -30,25 +30,67 @@
 			</div>
 		</section>
 		<section id="noticias">
-		
 			<div class="container">
-			<div class="col-xs-12 col-md-12">
-                <div class="title">
-                    <p>Notícias</p>
-                </div>
-            </div>
-				<div th:each="a : ${primeiranoticia}" class="row first">
-					<div class="col-md-12 col-xs-12">
-						<div class="row">
-							<div class="col-md-6 col-xs-6">
-								<img src="/image/upload/Desert.jpg" />
-							</div>
-							<div class="col-md-6 col-xs-6">
-								<h3 th:text="${a.titulo}" class="title"></h3>
-								<p th:text="${a.conteudo}" class="content"></p>
-								<a href="#" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-							</div>
+				<div class="col-xs-12 col-md-12">
+					<div class="title">
+						<p>Notícias</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="col-md-12 col-xs-12 first">
+					<div th:if="${#lists.size(noticia)} > 0" class="row ">
+						<div class="col-md-6 col-xs-6">
+							<img th:src="@{'/uploads/site/noticias/' + ${noticia[0].imagem}}" />
 						</div>
+						<div class="col-md-6 col-xs-6">
+							<h3 th:text="${noticia[0].retranca}" class="retranca"></h3>
+							<h2 th:text="${noticia[0].titulo}" class="title"></h2>
+							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[0].id})}" class="noticia-link">Ler a notícia <i
+								class="fa fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block-notice">
+				<div class="container">
+					<div th:if="${#lists.size(noticia)} > 1" class="row">						
+						<div th:if="${#lists.size(noticia)} >= 2" class="col-md-4 col-xs-12">
+							<h3 th:text="${noticia[1].retranca}" class="retranca"></h3>
+							<h2 th:text="${noticia[1].titulo}" class="title"></h2>
+							<img th:src="@{'/uploads/site/noticias/' + ${noticia[1].imagem}}" /> 
+							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[1].id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+						<div th:if="${#lists.size(noticia)} >= 3" class="col-md-4 col-xs-12">
+							<h3 th:text="${noticia[2].retranca}" class="retranca"></h3>
+							<h2 th:text="${noticia[2].titulo}" class="title"></h2>
+							<img th:src="${'/uploads/site/noticias/' + noticia[2].imagem}" /> 
+							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[2].id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+						<div th:if="${#lists.size(noticia)} >= 4" class="col-md-4 col-xs-12">
+							<h3 th:text="${noticia[3].retranca}" class="retranca"></h3>
+							<h2 th:text="${noticia[3].titulo}" class="title"></h2>
+							<img th:src="${'/uploads/site/noticias/' + noticia[3].imagem}" /> 
+							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[3].id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="all">
+				<div class="container">
+					<div th:if="${#lists.size(noticia)} >= 4">					
+						<div th:each="a,iterator : ${noticia}">
+							<div  th:if="${iterator.index} > 3" class="row">
+								<div class="col-md-9">
+									<h3 th:text="${a.retranca}" class="retranca"></h3>
+									<h2 th:text="${a.titulo}" class="title"></h2>								
+									<a th:href="@{/noticias/visualizar/{id} (id=${a.id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+								</div>								
+								<div class="col-md-3">
+									<img th:src="${'/uploads/site/noticias/' + a.imagem}" /> 
+								</div>
+							</div>
+						</div>	
 					</div>
 				</div>
 			</div>

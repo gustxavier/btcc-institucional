@@ -62,6 +62,7 @@ $(function () {
             $(this).addClass('active');
         });
     }
+    
     menuHeaderSelected();
     
     $('.imagem-premio').slick({
@@ -69,6 +70,6 @@ $(function () {
         infinite: true,
         speed: 300,
         slidesToShow: 1
-    });    
+    });
 
 }); /* End Fn */
