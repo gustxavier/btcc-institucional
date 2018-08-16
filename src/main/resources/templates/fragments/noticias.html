@@ -39,6 +39,7 @@
 			</div>
 			<div class="container">
 				<div class="col-md-12 col-xs-12 first">
+				<img src="/uploads/site/noticias/1534425748570.jpg">
 					<div th:if="${#lists.size(noticia)} > 0" class="row ">
 						<div class="col-md-6 col-xs-6">
 							<img th:src="@{'/uploads/site/noticias/' + ${noticia[0].imagem}}" />
@@ -64,13 +65,13 @@
 						<div th:if="${#lists.size(noticia)} >= 3" class="col-md-4 col-xs-12">
 							<h3 th:text="${noticia[2].retranca}" class="retranca"></h3>
 							<h2 th:text="${noticia[2].titulo}" class="title"></h2>
-							<img th:src="${'/uploads/site/noticias/' + noticia[2].imagem}" /> 
+							<img th:src="@{'/uploads/site/noticias/' + ${noticia[2].imagem}}" /> 
 							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[2].id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 						</div>
 						<div th:if="${#lists.size(noticia)} >= 4" class="col-md-4 col-xs-12">
 							<h3 th:text="${noticia[3].retranca}" class="retranca"></h3>
 							<h2 th:text="${noticia[3].titulo}" class="title"></h2>
-							<img th:src="${'/uploads/site/noticias/' + noticia[3].imagem}" /> 
+							<img th:src="@{'/uploads/site/noticias/' + ${noticia[3].imagem}}" /> 
 							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[3].id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 						</div>
 					</div>
@@ -87,7 +88,7 @@
 									<a th:href="@{/noticias/visualizar/{id} (id=${a.id})}" class="noticia-link">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 								</div>								
 								<div class="col-md-3">
-									<img th:src="${'/uploads/site/noticias/' + a.imagem}" /> 
+									<img th:src="@{'/uploads/site/noticias/' + ${a.imagem}}" /> 
 								</div>
 							</div>
 						</div>	

@@ -27,16 +27,16 @@ public class Usuario extends AbstractEntity<Long> {
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
 	}
-	@OneToMany
-	@JoinColumn(foreignKey = @ForeignKey( name = "none" ))
-	private List<Noticia> noticias;
+//	@OneToMany
+//	@JoinColumn(foreignKey = @ForeignKey( name = "none" ))
+//	private List<Noticia> noticias;
 	
-	public List<Noticia> getNoticias() {
-		return noticias;
-	}
-	public void setNoticias(List<Noticia> noticias) {
-		this.noticias = noticias;
-	}
+//	public List<Noticia> getNoticias() {
+//		return noticias;
+//	}
+//	public void setNoticias(List<Noticia> noticias) {
+//		this.noticias = noticias;
+//	}
 	public String getNome() {
 		return nome;
 	}

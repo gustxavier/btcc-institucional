@@ -19,8 +19,8 @@ import com.btcc.institucional.domain.Noticia;
 @Service @Transactional(readOnly = false)
 public class NoticiaServiceImpl implements NoticiaService{
 
-//	public static String directory_uri_upload= "C://Users//ESPACO//git//btcc-institucional//src//main//resources//static//uploads//site//noticias//";
-	public static String directory_uri_upload= "//home//espaco//uploads//site//noticias//";
+	public static String directory_uri_upload= "C://Users//ESPACO//git//uploads//site//noticias//";
+//	public static String directory_uri_upload= "//home//espaco//uploads//site//noticias//";
 
 	@Autowired
 	private NoticiaDao dao;
