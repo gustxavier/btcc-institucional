@@ -19,8 +19,8 @@ import com.btcc.institucional.domain.Noticia;
 @Service @Transactional(readOnly = false)
 public class NoticiaServiceImpl implements NoticiaService{
 
-	public static String directory_uri_upload= "C://Users//ESPACO//git//uploads//site//noticias//";
-//	public static String directory_uri_upload= "//home//espaco//uploads//site//noticias//";
+	@Value("${btcc.filesPathUpload}")
+    private String filesPath;
 
 	@Autowired
 	private NoticiaDao dao;
@@ -81,17 +81,18 @@ public class NoticiaServiceImpl implements NoticiaService{
 
 				setFilename(file);
 
-				Path path = Paths.get(directory_uri_upload + getFilename());
-				File newfile = new File(directory_uri_upload + getFilename());
+				Path path = Paths.get(getFilesPath() + getFilename());
+				File newfile = new File(getFilesPath() + getFilename());
 				Files.write(path, bytes);
 				
 				newfile.setReadable(true, false);
-				newfile.setWritable(true, false);
 
 				noticia.setImagem(getFilename());
 
 			} catch (IOException e) {
 				e.printStackTrace();
+				obj.add("fail");
+				obj.add("Falha ao realizar upload da imagem!");
 			}			
 		}
 		
@@ -109,7 +110,7 @@ public class NoticiaServiceImpl implements NoticiaService{
 			return true;
 		}
 
-		File file = new File(directory_uri_upload + noticia.getImagem());
+		File file = new File(getFilesPath() + noticia.getImagem());
 
 		noticia.setImagem(null);
 		editar(noticia);
@@ -132,6 +133,8 @@ public class NoticiaServiceImpl implements NoticiaService{
 		this.filename = System.currentTimeMillis() + ext;
 	}
 
-
-
+	public String getFilesPath() {
+		return filesPath + "/noticias/";
+	}
+	
 }

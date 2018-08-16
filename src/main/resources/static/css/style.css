@@ -738,10 +738,14 @@ a.btn-btcc-transparent {
     padding: 80px;
 }
 
+#noticias .first{
+	margin-bottom: 45px;
+}
+
 #noticias .block-notice{
     background: #f5f5f5;
     padding: 40px 0;
-    margin: 45px 0;
+    margin-bottom: 45px;
 }
 
 #noticias .block-notice .title{

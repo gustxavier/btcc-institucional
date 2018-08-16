@@ -19,6 +19,7 @@ public class Usuario extends AbstractEntity<Long> {
 	@Column(name= "password", nullable = false, length = 150)
 	private String password;
 	
+	@Transient
 	private String passwordConfirm;
 		
 	public String getPasswordConfirm() {
@@ -27,16 +28,7 @@ public class Usuario extends AbstractEntity<Long> {
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
 	}
-//	@OneToMany
-//	@JoinColumn(foreignKey = @ForeignKey( name = "none" ))
-//	private List<Noticia> noticias;
-	
-//	public List<Noticia> getNoticias() {
-//		return noticias;
-//	}
-//	public void setNoticias(List<Noticia> noticias) {
-//		this.noticias = noticias;
-//	}
+
 	public String getNome() {
 		return nome;
 	}

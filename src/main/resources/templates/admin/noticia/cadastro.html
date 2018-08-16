@@ -29,7 +29,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-8">
 						<div class="image">
-							<img th:src="${noticia.imagem == null} ? @{/image/no-image.png} : @{'/uploads/site/noticias/' + ${noticia.imagem}}">
+							<img th:src="${noticia.imagem == null} ? @{/image/no-image.png} : @{'/files/noticias/' + ${noticia.imagem}}">
 						</div>
 						<input type="file" class="form-control" id="imagem"
 							placeholder="título" autofocus="autofocus" name="file" />

@@ -22,7 +22,7 @@ public class Noticia extends AbstractEntity<Long> {
 	@Column(name = "data", nullable = false, columnDefinition = "DATE")
 	private LocalDate data;
 	
-	@Column(name = "conteudo", nullable = true)
+	@Column(name = "conteudo", nullable = true, columnDefinition = "LONGTEXT")
 	private String conteudo;
 
 	@Column(name = "imagem", nullable = true)

@@ -41,7 +41,7 @@
 					<div class="col-md-12">
 						<h3 th:text="${d.retranca}" class="retranca"></h3>
 						<h2 th:text="${d.titulo}" class="title"></h2>
-						<img th:src="${'/uploads/site/noticias/' + d.imagem}" />
+						<img th:src="@{'/files/noticias/' + ${d.imagem}}" />
 					</div>
 					<div class="col-md-12 content">
 						<div th:utext="${d.conteudo}"></div>

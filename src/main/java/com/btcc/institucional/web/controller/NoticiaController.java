@@ -45,7 +45,7 @@ public class NoticiaController {
 		return "redirect:/admin/noticias/listar";
 	}
 
-	@GetMapping("editar/{id}")
+	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
 		model.addAttribute("noticia", service.buscaPorId(id));
 		return "admin/noticia/cadastro";
@@ -60,23 +60,18 @@ public class NoticiaController {
 			}
 		}
 		ArrayList<String> obj = service.uploadFile(file, noticia);
-		System.out.println(noticia.getConteudo());
-		System.out.println(noticia.getData());
-		System.out.println(noticia.getId());
-		System.out.println(noticia.getImagem());
-		System.out.println(noticia.getRetranca());
-		System.out.println(noticia.getTitulo());
 		service.editar(noticia);
 		attr.addFlashAttribute(obj.get(0), obj.get(1));
 		return "redirect:/admin/noticias/listar";
 	}
 
-	@GetMapping("excluir/{id}")
+	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 		if (!service.removeFile(id)) {
 			attr.addFlashAttribute("fail", "Falhar ao excluir a notícia!");
 			return "redirect:/admin/noticias/listar";
 		}
+		System.out.println("oi oi");
 		service.excluir(id);
 		attr.addFlashAttribute("success", "Notícia excluída com sucesso!");
 		return "redirect:/admin/noticias/listar";

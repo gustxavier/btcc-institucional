@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,8 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Service @Transactional(readOnly = false)
 public class ImagemServiceImpl implements ImagemService{
 	
-	public static String directory_uri_upload= "C://Users//ESPACO//git//btcc-institucional//src//main//resources//static//uploads//site//imagens//";
-//	public static String directory_uri_upload= "//home//espaco//uploads//site//imagens//";
+	@Value("${btcc.filesPathUpload}")
+    private String filesPath;
 
 	private String filename;
 	
@@ -94,7 +95,7 @@ public class ImagemServiceImpl implements ImagemService{
 			return true;
 		}
 		
-		File file = new File(directory_uri_upload + imagem.getTitulo());
+		File file = new File(getFilesPath() + imagem.getTitulo());
 
 		if(file.delete()){
 			return true;
@@ -160,6 +161,9 @@ public class ImagemServiceImpl implements ImagemService{
 
 		return this.obj;
 	}
-	
+
+	public String getFilesPath() {
+		return filesPath + "/imagens/";
+	}
 	
 }

@@ -49,8 +49,8 @@ public class IndexController {
 		return "fragments/noticias";
 	}
 	
-	@GetMapping("/noticias/visualizar/{id}")
-	public String noticiasVisualizar(@PathVariable("id") Long id, ModelMap model) {
+	@GetMapping("/noticias/{id}/{titulo}")
+	public String noticiasVisualizar(@PathVariable("id") Long id, @PathVariable("titulo") String titulo, ModelMap model) {
 		model.addAttribute("activeTab","noticias");
 		model.addAttribute("noticia", noticiasService.buscaPorId(id));
 		return "fragments/single-post";

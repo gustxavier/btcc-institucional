@@ -12,7 +12,7 @@ public interface NoticiaService {
 	
 	void editar (Noticia noticia);
 	
-	void excluir (Long noticia);
+	void excluir (Long id);
 	
 	Noticia buscaPorId (Long id);
 	
