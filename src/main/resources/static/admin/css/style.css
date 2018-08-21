@@ -10,8 +10,13 @@ body {
 	padding-left: 0;
 }
 
+.table th{
+	text-align: center;
+}
+
 .table td {
 	vertical-align: middle;
+	text-align: center;
 }
 
 .table img {
@@ -55,6 +60,10 @@ a.navbar-brand{
 .container {
 	width: 100%;
 	padding-top: 20px;
+}
+
+.link{
+	font-weight: 600;
 }
 
 /*

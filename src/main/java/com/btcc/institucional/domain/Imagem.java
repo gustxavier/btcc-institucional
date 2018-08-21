@@ -3,6 +3,7 @@ package com.btcc.institucional.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
 @Entity
@@ -17,6 +18,9 @@ public class Imagem  extends AbstractEntity<Long>{
 	
 	@Column(name = "local", nullable = true)
 	private String local;
+	
+	@Transient
+	private Long quantidade;
 
 	public String getTitulo() {
 		return titulo;

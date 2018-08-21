@@ -732,6 +732,7 @@ a.btn-btcc-transparent {
     height: auto;
     margin: auto;
     display: block;
+    max-width: 100%;
 }
 
 #single-post .content{
@@ -764,7 +765,13 @@ a.btn-btcc-transparent {
 }
 
 #noticias p,
-#single-post p {
+#single-post p,
+#single-post .content h1,
+#single-post .content h2,
+#single-post .content h3,
+#single-post .content h4,
+#single-post .content h5,
+#single-post .content h6 {
 	color: #888888;
 }
 

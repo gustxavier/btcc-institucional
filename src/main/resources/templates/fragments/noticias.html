@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-xs-12">
-						<img src="/uploads/site/imagens/pessoa-empresa-vagas.png" />
+						<img th:src="@{/files/banners/pessoa-empresa-vagas.png}" />
 					</div>
 					<div class="col-md-4 col-xs-12">
 						<h2 class="text-center">VENHA TRABALHAR CONOSCO</h2>
@@ -59,19 +59,19 @@
 							<h3 th:text="${noticia[1].retranca}" class="retranca"></h3>
 							<h2 th:text="${noticia[1].titulo}" class="title"></h2>
 							<img th:src="@{'/files/noticias/' + ${noticia[1].imagem}}" /> 
-							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[1].id})}" class="noticia-link title="Ler Notícia"">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+							<a th:href="@{/noticias/{id}/{titulo} (id=${noticia[1].id},titulo=${noticia[1].titulo})}" class="noticia-link title="Ler Notícia"">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 						</div>
 						<div th:if="${#lists.size(noticia)} >= 3" class="col-md-4 col-xs-12">
 							<h3 th:text="${noticia[2].retranca}" class="retranca"></h3>
 							<h2 th:text="${noticia[2].titulo}" class="title"></h2>
 							<img th:src="@{'/files/noticias/' + ${noticia[2].imagem}}" /> 
-							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[2].id})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+							<a th:href="@{/noticias/{id}/{titulo} (id=${noticia[2].id},titulo=${noticia[2].titulo})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 						</div>
 						<div th:if="${#lists.size(noticia)} >= 4" class="col-md-4 col-xs-12">
 							<h3 th:text="${noticia[3].retranca}" class="retranca"></h3>
 							<h2 th:text="${noticia[3].titulo}" class="title"></h2>
 							<img th:src="@{'/files/noticias/' + ${noticia[3].imagem}}" /> 
-							<a th:href="@{/noticias/visualizar/{id} (id=${noticia[3].id})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+							<a th:href="@{/noticias/{id}/{titulo} (id=${noticia[3].id},titulo=${noticia[3].titulo})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 						</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 								<div class="col-md-9">
 									<h3 th:text="${a.retranca}" class="retranca"></h3>
 									<h2 th:text="${a.titulo}" class="title"></h2>								
-									<a th:href="@{/noticias/visualizar/{id} (id=${a.id})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+									<a th:href="@{/noticias/{id}/{titulo} (id=${noticia[0].id},titulo=${noticia[0].titulo})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 								</div>								
 								<div class="col-md-3">
 									<img th:src="@{'/files/noticias/' + ${a.imagem}}" /> 

@@ -3,6 +3,7 @@ package com.btcc.institucional.dao;
 import java.util.List;
 
 import com.btcc.institucional.domain.Imagem;
+import com.btcc.institucional.domain.ImagemLocal;
 import com.btcc.institucional.domain.ImagemTipo;
 
 public interface ImagemDao {

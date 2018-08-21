@@ -32,8 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/fonts/**",
                             "/image/**",
                             "/lib/**",
-                            "/uploads/**",
-                            "/uploads/site/**",
+                            "/files/**",
                             "/admin/usuarios/**",
                             "/admin/noticias/**",
                             "/admin/imagens/**",
@@ -53,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .usernameParameter("email").passwordParameter("password")
                     .and()
                 .exceptionHandling()
-                .accessDeniedPage("/access-denied");;
+                .accessDeniedPage("/access-denied");
     }
 
     @Autowired

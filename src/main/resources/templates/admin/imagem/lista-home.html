@@ -11,10 +11,6 @@
 					<li class="nav-item active"><i class="oi oi-caret-right"></i>
 						<span>Lista de Imagens - Home</span></li>
 				</ul>
-				<a class="btn btn-primary btn-md" href="/admin/imagens/cadastrar-home"
-					role="button"> <span class="oi oi-plus" title="Cadastro"
-					aria-hidden="true"></span> <span>Adicionar nova</span>
-				</a>
 			</div>
 		</nav>
 
@@ -29,25 +25,18 @@
 						<tr>
 							<th>#</th>
 							<th>Imagem</th>
-							<th>Local</th>
 							<th>Ação</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="d : ${imagem}">
 							<td th:text="${d.id}">1</td>
-							<td><img th:src="${'/uploads/site/imagens/' + d.titulo}" /></td>
-							<td th:text="${d.local}">Local</td>
+							<td><img th:src="@{'/files/home/' + ${d.titulo}}" /></td>
 							<td colspan="3"><a class="btn btn-info btn-sm"
 								th:href="@{/admin/imagens/editar-home/{id} (id=${d.id})}"
 								title="Editar" role="button"> <span class="oi oi-pencil"
 									aria-hidden="true"></span>
-							</a>
-								<button th:id="${'btn_admin/imagens/excluir/' + d.id}"
-									type="button" class="btn btn-danger btn-sm" title="Excluir"
-									data-toggle="modal" data-target="#myModal">
-									<span class="oi oi-circle-x" aria-hidden="true"></span>
-								</button></td>
+							</a></td>
 						</tr>
 					</tbody>
 				</table>

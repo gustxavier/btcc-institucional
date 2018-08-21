@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html layout:decorate="~{/admin/template}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Notícias > Imagens</span></li>
+				</ul>
+			</div>
+			<a class="btn btn-primary btn-md" href="/admin/noticias/listar-imagens"
+				role="button"> <span class="oi oi-spreadsheet" title="Listar"
+				aria-hidden="true"></span> <span>Listar Imagens</span>
+			</a>
+		</nav>
+
+		<div class="container" id="upload-imagem">
+
+			<div th:replace="admin/fragments/alert"></div>
+
+			<form method="POST" th:action="@{/admin/noticias/salvar-imagem}" enctype="multipart/form-data">
+				<div class="form-row">
+					<div class="form-group col-md-8">
+						<div class="image">
+							<img th:src="@{/image/no-image.png}">
+						</div>
+						<span><small>Formato de imagem permitido: .png e .jpg</small></span> <br />
+						<input type="file" class="form-control" id="imagem"
+							placeholder="título" autofocus="autofocus" name="file" accept=".png, .jpg" />
+					</div>
+				</div>	
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

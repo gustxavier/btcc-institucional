@@ -24,6 +24,4 @@ public interface ImagemService {
 	boolean removeFile (Long id);
 	
 	boolean isTituloExists(String titulo);
-	
-	ArrayList<String> validaCamposAdicionar(MultipartFile file, Imagem imagem);
 }

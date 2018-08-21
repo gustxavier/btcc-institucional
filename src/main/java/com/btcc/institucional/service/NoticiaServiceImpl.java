@@ -82,11 +82,8 @@ public class NoticiaServiceImpl implements NoticiaService{
 				setFilename(file);
 
 				Path path = Paths.get(getFilesPath() + getFilename());
-				File newfile = new File(getFilesPath() + getFilename());
 				Files.write(path, bytes);
 				
-				newfile.setReadable(true, false);
-
 				noticia.setImagem(getFilename());
 
 			} catch (IOException e) {

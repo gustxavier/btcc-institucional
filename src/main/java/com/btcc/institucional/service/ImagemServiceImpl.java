@@ -8,6 +8,7 @@ import com.btcc.institucional.service.ImagemService;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -70,10 +71,13 @@ public class ImagemServiceImpl implements ImagemService{
 			// Get the file and save it somewhere
 			byte[] bytes = file.getBytes();
 			
-			setFileNameIfNotExists(imagem);
+			setFilename(buscaPorId(imagem.getId()).getTitulo());
+			Path path = Paths.get(getFilesPath() + getFilename());
+			File newfile = new File(getFilesPath() + getFilename());
+			Files.write(path, bytes);
 			
-//			Path path = Paths.get(directory_uri_upload + "//" + getFilename());
-			System.out.println(getFilename());
+			newfile.setReadable(true, false);
+			
 			imagem.setTitulo(getFilename());
 
 		} catch (IOException e) {
@@ -90,10 +94,6 @@ public class ImagemServiceImpl implements ImagemService{
 	public boolean removeFile(Long id){
 
 		Imagem imagem = buscaPorId(id);
-
-		if(imagem.getTitulo() == null) {
-			return true;
-		}
 		
 		File file = new File(getFilesPath() + imagem.getTitulo());
 
@@ -101,30 +101,6 @@ public class ImagemServiceImpl implements ImagemService{
 			return true;
 		}
 		return false;
-	}
-
-	public void setFileNameIfNotExists(Imagem imagem) {
-		
-		String prefix;
-		
-		if((String)imagem.getLocal() == (String)ImagemLocal.topo.getLocal()) {
-			System.out.println("oi");
-			prefix = "pessoa-bem-vindo-";
-		} else if(imagem.getLocal() == ImagemLocal.meio.getLocal()){
-			System.out.println("népossivel");
-			prefix = "pessoa-trabalhe-conosco-";
-		} else {
-			System.out.println("putz");
-			prefix = "pessoa-onde-estamos-";
-		}
-
-		for (int i = 1; i <= 3; i++) {
-			if(!isTituloExists(prefix + i + ".png")) {
-				System.out.println(prefix + i + ".png");
-				setFilename(prefix + i + ".png");
-				break;
-			}
-		}
 	}
 	
 	public boolean isTituloExists(String titulo) {
@@ -142,28 +118,8 @@ public class ImagemServiceImpl implements ImagemService{
 		this.filename = filename;
 	}
 
-	@Override
-	public ArrayList<String> validaCamposAdicionar(MultipartFile file, Imagem imagem) {
-		
-		this.obj.clear();
-		
-		if(file.isEmpty()) {
-			this.obj.add("warning");
-			this.obj.add("Você precisa selecionar uma imagem");
-			this.obj.add("redirect:/admin/imagens/cadastrar-home");
-		}
-		
-		if(imagem.getLocal().isEmpty()) {
-			this.obj.add("warning");
-			this.obj.add("Você precisa selecionar o local onde a imagem deve aparecer");
-			this.obj.add("redirect:/admin/imagens/cadastrar-home");
-		}
-
-		return this.obj;
-	}
-
 	public String getFilesPath() {
-		return filesPath + "/imagens/";
+		return filesPath + "/home/";
 	}
 	
 }

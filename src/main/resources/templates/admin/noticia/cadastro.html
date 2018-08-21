@@ -58,7 +58,8 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label for="nome">Texto</label>
+						<label for="nome">Texto</label><br>
+						<small>Obs: Para inserir um vídeo, basta copiar o <i>Código de Incorporação</i> do vídeo, clicar no editor de texto na opção "Código Fonte" e colar o <i>Código de Incorporação</i>.</small>
 						<textarea class="form-control" id="editor-conteudo" autofocus="autofocus"
 							th:field="*{conteudo}"></textarea>
 					</div>
@@ -68,7 +69,10 @@
 				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
 			</form>
 		</div>
-		<script>CKEDITOR.replace( 'editor-conteudo' );</script>
+		<script>
+		CKEDITOR.replace( 'editor-conteudo' );
+		
+		</script>
 	</section>
 </body>
 </html>

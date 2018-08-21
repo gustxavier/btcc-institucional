@@ -32,24 +32,8 @@ public class ImagemController {
 		return "admin/imagem/cadastro-home";
 	}
 	
-	@PostMapping("/salvar-home")
-	public String salvarHome(@RequestParam("file") MultipartFile file, Imagem imagem, RedirectAttributes attr) {
-		ArrayList<String> obj = service.validaCamposAdicionar(file, imagem);
-		if(!obj.isEmpty()) {
-			attr.addFlashAttribute(obj.get(0), obj.get(1));
-			return obj.get(2);
-		}
-		obj.clear();
-		imagem.setTipo(ImagemTipo.home.getTipo()); // Home
-		obj = service.uploadFile(file, imagem);
-		service.salvar(imagem);
-		attr.addFlashAttribute(obj.get(0), obj.get(1));
-		return "redirect:/admin/imagens/listar-home";
-	}
-	
 	@GetMapping("/listar-home")
 	public String listarHome(ModelMap model) {
-		System.out.println(service.buscarTodos(ImagemTipo.home));
 		model.addAttribute("imagem", service.buscarTodos(ImagemTipo.home));
 		return "/admin/imagem/lista-home";
 	}
@@ -62,19 +46,19 @@ public class ImagemController {
 
 	@PostMapping("/editar-home")
 	public String editarHome(@RequestParam("file") MultipartFile file, Imagem imagem, RedirectAttributes attr) {
-		System.out.println(imagem);
-		System.out.println(file);
-		if(!imagem.getTitulo().isEmpty() && !file.isEmpty()) {
-			if(!service.removeFile(imagem.getId())) {
-				attr.addFlashAttribute("fail", "Falha ao tentar editar a imagem");
-				return "redirect:/admin/imagem/lista-home";
-			}
+		if(file.isEmpty()) {
+			attr.addFlashAttribute("warning", "Você precisa selecionar uma imagem");
+			return "redirect:/admin/imagens/listar-home";
 		}
-		System.out.println("passou tudo");
+		
+		if(!service.removeFile(imagem.getId())) {
+			attr.addFlashAttribute("fail", "Falha ao tentar editar a imagem");
+			return "redirect:/admin/imagens/listar-home";
+		}
+		
 		ArrayList<String> obj = service.uploadFile(file, imagem);
-		service.editar(imagem);
 		attr.addFlashAttribute(obj.get(0), obj.get(1));
-		return "redirect:/admin/imagem/lista-home";
+		return "redirect:/admin/imagens/listar-home";
 	}
 	
 }

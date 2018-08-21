@@ -29,7 +29,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-8">
 						<div class="image">
-							<img th:src="${imagem.titulo == null} ? @{/image/no-image.png} : @{'/uploads/site/imagens/' + ${imagem.titulo}}">
+							<img th:src="${imagem.titulo == null} ? @{/image/no-image.png} : @{'/files/home/' + ${imagem.titulo}}">
 						</div>
 						<span><small>Formato de imagem permitido: .png</small></span> <br />
 						<span><small>Dimensões: 730x815 pixels</small></span> <br />
@@ -37,22 +37,23 @@
 							placeholder="título" autofocus="autofocus" name="file" accept=".png" />
 					</div>
 				</div>	
-				<div class="form-row">
-					<div class="form-group col-md-3">
-					<label>Local onde a imagem deve aparecer:</label>
-						<select class="form-control" autofocus="autofocus" th:field="*{local}">
-							<option th:if="${imagem.local} == null" value="" selected="selected">Selecione um local</option>
-							<optgroup label="---------------">
-							    <option th:each="local : ${T(com.btcc.institucional.domain.ImagemLocal).values()}"
-							            th:value="${local.local}"
-							            th:text="${local}">
-							    </option>
-						    </optgroup>
-						</select>
-					</div>
-				</div>			
+<!-- 				<div class="form-row"> -->
+<!-- 					<div class="form-group col-md-3"> -->
+<!-- 					<label>Local onde a imagem deve aparecer:</label> -->
+<!-- 						<select class="form-control" autofocus="autofocus" th:field="*{local}"> -->
+<!-- 							<option th:if="${imagem.local} == null" value="" selected="selected">Selecione um local</option> -->
+<!-- 							<optgroup label="---------------"> -->
+<!-- 							    <option th:each="local : ${T(com.btcc.institucional.domain.ImagemLocal).values()}" -->
+<!-- 							            th:value="${local.local}" -->
+<!-- 							            th:text="${local}"> -->
+<!-- 							    </option> -->
+<!-- 						    </optgroup> -->
+<!-- 						</select> -->
+<!-- 					</div> -->
+<!-- 				</div>			 -->
 				<input type="hidden" id="id" th:field="*{id}" />
 				<input type="hidden" id="file" th:field="*{titulo}" />
+				<input type="hidden" id="local" th:field="*{local}" />
 <!-- 				<input type="hidden" id="file" th:field="*{local}" /> -->
 				<input type="hidden" id="file" th:field="*{tipo}" />
 				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>

@@ -71,5 +71,20 @@ $(function () {
         speed: 300,
         slidesToShow: 1
     });
+    
+	function sameHeight(where, element){
+        var height = [];
+        var maxHeight = 0;
+        $(where).find(element).each(function(index){
+            height[index] = $(this).height();
+            if(height[index] > maxHeight){
+                maxHeight = height[index];
+            }
+        }).css('min-height', maxHeight);
+    }
+ 
+    /* Fuction with parameters where and what element will have the same height */
+    sameHeight('.block-notice', '.retranca');
+    sameHeight('.block-notice', '.title');
 
 }); /* End Fn */

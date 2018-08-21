@@ -53,6 +53,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public String loginTemUsuario(Usuario usuario) {
 		List<Usuario> usuarios = dao.verifyLogin(usuario);
+		System.out.println(usuarios);
 		if(usuarios.isEmpty()) {
 			return "/login/error";
 		} 

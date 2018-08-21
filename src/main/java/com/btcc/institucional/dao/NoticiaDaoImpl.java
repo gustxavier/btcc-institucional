@@ -10,13 +10,15 @@ import com.btcc.institucional.domain.Noticia;
 @Repository
 public class NoticiaDaoImpl extends AbstractDao<Noticia, Long> implements NoticiaDao {
 	
-	@SuppressWarnings("unchecked")
-    private final Class<Noticia> entityClass = (Class<Noticia>) 
-        ( (ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]; 
+	public List<Noticia> findAll(){
+		return getEntityManager()
+				.createQuery("from " + getEntityClass().getSimpleName() + " ORDER BY id DESC", getEntityClass())
+				.getResultList();
+	}
 	
 	public List<Noticia> findBlockThreeNotice(){
 		return getEntityManager()
-				.createQuery("from " + entityClass.getSimpleName() + " ORDER BY id DESC", entityClass)
+				.createQuery("from " + getEntityClass().getSimpleName() + " ORDER BY id DESC", getEntityClass())
 				.setMaxResults(1)
 				.getResultList();
 	}
