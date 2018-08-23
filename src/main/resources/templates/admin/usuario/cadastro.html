@@ -42,12 +42,13 @@
 				</div>
 				<div class="form-row ">
 					<div class="form-group col-md-4">
-						<label for="nome">Password</label> <input type="password"
-							class="form-control" id="password" placeholder="Password"
+						<label for="nome">Senha</label> <input type="password"
+							class="form-control" id="password" placeholder="Digite aqui a senha"
 							autofocus="autofocus" th:field="*{password}" />
 					</div>
 				</div>
 				<input type="hidden" id="id" th:field="*{id}" />
+				<input type="hidden" id="permissao" th:field="*{permissao}" />
 				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
 			</form>
 		</div>

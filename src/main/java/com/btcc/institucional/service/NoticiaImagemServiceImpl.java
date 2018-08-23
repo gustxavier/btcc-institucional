@@ -18,7 +18,7 @@ import com.btcc.institucional.dao.NoticiaImagemDao;
 import com.btcc.institucional.domain.NoticiaImagem;
 
 @Service @Transactional(readOnly = false)
-public class NoticiaImagemServiceImpl implements NoticiaImagemService{
+public class NoticiaImagemServiceImpl extends AbstractService implements NoticiaImagemService{
 
 	@Autowired
 	private NoticiaImagemDao dao;
@@ -96,16 +96,6 @@ public class NoticiaImagemServiceImpl implements NoticiaImagemService{
 		}
 
 		return false;
-	}
-
-	public String getFilename() {
-		return this.filename;
-	}
-
-	public void setFilename(MultipartFile file) {
-		String name = file.getOriginalFilename(); 
-		String ext = name.substring(name.lastIndexOf("."),name.length()); 
-		this.filename = System.currentTimeMillis() + ext;
 	}
 
 	public String getFilesPath() {

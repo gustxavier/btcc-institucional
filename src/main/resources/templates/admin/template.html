@@ -21,6 +21,7 @@
 
 <!-- Editor de texto -->
 <script type="text/javascript" src="/lib/ckeditor/ckeditor.js"></script>
+<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
 
 </head>
 <body>
@@ -38,7 +39,8 @@
 
 		<section class="container" layout:fragment="corpo">
 			<div class="container" id="dashboard">
-				<h1>Painel Administrativo</h1>
+				<h2>Bem vindo <b th:inline="text" class="user">[[${#httpServletRequest.remoteUser}]]</b></h2>
+				<p>Este é o painel administrativo do site da BTCC.</p>
 			</div>
 		</section>
 	</div>

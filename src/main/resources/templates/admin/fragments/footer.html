@@ -6,8 +6,14 @@
 <body>
 	<footer class="layout-footer" th:fragment="rodape">
 		<div class="container">
-			<span class="footer-copy">&copy; 2018 Espaço ID. Todos os
-				direitos reservados.</span>
+			<span class="footer-copy">&copy; 2018 Espaço ID. <span sec:authorize="isAuthenticated()"
+					style="display: inline-block;"> | Usuário: <span
+					sec:authentication="name"></span> | Permissão: <span
+					sec:authentication="principal.authorities"></span> | 
+					<a th:href="@{/logout}" type="button" class="btn btn-danger btn-sm" title="Sair">
+									<span class="oi oi-arrow-circle-right" aria-hidden="true"></span>
+								Sair </a>
+				</span></span>
 		</div>
 	</footer>
 </body>

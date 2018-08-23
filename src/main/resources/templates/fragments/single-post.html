@@ -49,6 +49,55 @@
 				</div>
 			</div>
 		</section>
+		<section th:if="${#lists.size(relacionadas)} > 0"
+			id="single-post-relacionadas">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 title">
+						<p>Notícias Relacionadas</p>
+					</div>
+				</div>
+
+				<hr>
+				<div class="row">
+					<div class="col-md-6 col-xs-12 relacionada">
+						<div class="row">
+							<div class="col-md-8 col-xs-12 content">
+								<p th:text="${relacionadas[0].titulo}" class="title">Título</p>
+								<p>
+									<a
+										th:href="@{/noticias/{id}/{titulo} (id=${relacionadas[0].id},titulo=${relacionadas[0].linkpermanente})}"
+										class="noticia-link" title="Ler Notícia">Ler a notícia <i
+										class="fa fa-arrow-right" aria-hidden="true"></i></a>
+								</p>
+							</div>
+							<div class="image-relacionada col-md-4 col-xs-12">
+								<img th:src="@{'/files/noticias/' + ${relacionadas[0].imagem}}">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12 relacionada">
+						<div class="row">
+							<div th:if="${#lists.size(relacionadas)} > 1"
+								class="image-relacionada col-md-4 col-xs-12">
+								<img th:src="@{'/files/noticias/' + ${relacionadas[1].imagem}}">
+							</div>
+							<div th:if="${#lists.size(relacionadas)} > 1"
+								class="col-md-8 col-xs-12 content">
+								<p th:text="${relacionadas[1].titulo}" class="title">Título</p>
+								<p>
+									<a
+										th:href="@{/noticias/{id}/{titulo} (id=${relacionadas[1].id},titulo=${relacionadas[1].linkpermanente})}"
+										class="noticia-link" title="Ler Notícia">Ler a notícia <i
+										class="fa fa-arrow-right" aria-hidden="true"></i></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	</section>
 	</div>
 </body>
 </html>

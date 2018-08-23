@@ -12,10 +12,6 @@ void salvar (Usuario usuario);
 	void excluir (Long id);
 	
 	Usuario buscaPorId (Long id);
-	
-	String loginTemUsuario (Usuario usuario);
-	
+		
 	List<Usuario> buscarTodos();
-	
-//	boolean usuarioTemNoticias(BigInteger id);
 }

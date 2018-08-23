@@ -13,11 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.btcc.institucional.config.SecurityConfig;
 import com.btcc.institucional.dao.NoticiaDao;
 import com.btcc.institucional.domain.Noticia;
 
 @Service @Transactional(readOnly = false)
-public class NoticiaServiceImpl implements NoticiaService{
+public class NoticiaServiceImpl extends AbstractService implements NoticiaService{
 
 	@Value("${btcc.filesPathUpload}")
     private String filesPath;
@@ -29,11 +30,13 @@ public class NoticiaServiceImpl implements NoticiaService{
 
 	@Override
 	public void salvar(Noticia noticia) {
+		noticia.setLinkpermanente(noticia.getTitulo().replaceAll(" ", "-").toLowerCase());
 		dao.save(noticia);
 	}
 
 	@Override
 	public void editar(Noticia noticia) {
+		noticia.setLinkpermanente(noticia.getTitulo().replaceAll(" ", "-").toLowerCase());
 		dao.update(noticia);
 	}
 
@@ -61,6 +64,12 @@ public class NoticiaServiceImpl implements NoticiaService{
 	public List<Noticia> buscarBlocoTresNoticias() {
 		return dao.findFirst();
 	}
+	
+	@Override @Transactional(readOnly = true)
+	public List<Noticia> buscarRelacionadas(Long noticiaId, Long categoriaId) {
+		return dao.findRelated(noticiaId, categoriaId);
+	}
+	
 
 	@Override
 	public ArrayList<String> uploadFile (MultipartFile file, Noticia noticia) {
@@ -120,18 +129,20 @@ public class NoticiaServiceImpl implements NoticiaService{
 		return false;
 	}
 
-	public String getFilename() {
-		return this.filename;
-	}
-
-	public void setFilename(MultipartFile file) {
-		String name = file.getOriginalFilename(); 
-		String ext = name.substring(name.lastIndexOf("."),name.length()); 
-		this.filename = System.currentTimeMillis() + ext;
-	}
-
 	public String getFilesPath() {
 		return filesPath + "/noticias/";
 	}
 	
+	@Override
+	public boolean validaFomulario(Noticia noticia) {
+		if(noticia.getTitulo().isEmpty() ||
+		   noticia.getCategoria() == null ||
+		   noticia.getData().toString().isEmpty() ||
+		   noticia.getConteudo().isEmpty()
+		   ) {
+			return false;
+		}
+		
+		return true;
+	}
 }

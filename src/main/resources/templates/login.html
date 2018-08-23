@@ -36,18 +36,37 @@
 	<section id="login">
 		<div class="row">
 			<div class="container">
-				<form id="form-signin" th:action="@{/login/entrar}"
-					th:object="${usuario}" method="post">
+				<form id="form-signin" th:action="@{/admin-login}" method="post">
 					<a class="navbar-brand" href="/"><img
 						src="/image/btcc-logo.png" class="img-fluid" alt="logo"></a>
-					<div th:replace="admin/fragments/alert"></div>
+					<div th:if="${param.error}">
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							<i class="oi oi-warning"></i>
+							<span>
+								<strong>Usuário ou senha invalidos.</strong>
+							</span>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+					<div th:if="${param.logout}">
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<i class="oi oi-warning"></i>
+							<span>
+								<strong>Você foi desconectado</strong>
+							</span>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+					<!-- 					<div th:replace="admin/fragments/alert"></div> -->
 					<div class="form-group">
-						<input type="email" id="email" th:field="*{email}"
-							class="form-control" autofocus="autofocus" placeholder="E-mail">
+						<input type="text" id="usuario" name="usuario" class="form-control" autofocus="autofocus" placeholder="Usuario">
 					</div>
 					<div class="form-group">
-						<input type="password" id="password" th:field="*{password}"
-							class="form-control" placeholder="Password">
+						<input type="password" id="password" name="password" class="form-control" placeholder="Password">
 					</div>
 					<div class="form-group">
 						<div class="row">
@@ -58,9 +77,11 @@
 						</div>
 					</div>
 				</form>
+				</li>
 				<p class="text-center">
 					<a href="/" th:href="@{/}" class="btn btn-btcc hvr-grow"><i
-						class="fa fa-arrow-left" aria-hidden="true"></i> Ir para página inicial</a>
+						class="fa fa-arrow-left" aria-hidden="true"></i> Ir para página
+						inicial</a>
 				</p>
 			</div>
 		</div>

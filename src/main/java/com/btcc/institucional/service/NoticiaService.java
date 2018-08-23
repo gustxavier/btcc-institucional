@@ -22,7 +22,11 @@ public interface NoticiaService {
 	
 	List<Noticia> buscarTodos();
 	
+	List<Noticia> buscarRelacionadas(Long noticiaId, Long categoriaId);
+	
 	ArrayList<String> uploadFile (MultipartFile file, Noticia noticia);
 	
 	boolean removeFile (Long id);
+	
+	boolean validaFomulario(Noticia noticia);
 }

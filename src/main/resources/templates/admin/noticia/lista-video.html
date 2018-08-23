@@ -38,16 +38,16 @@
 							<td><video width="300" controls>
 									<source th:src="@{'/files/noticias/videos/' + ${d.titulo}}"
 										th:type="'video/' + ${d.extensao}">
-									Seu navegador não possuir suporte HTML5 para vídeo.
+									Seu navegador não possuir suporte HTML5 para vídeo, <a href="https://videojs.com/html5-video-support/" target="_blank">clique aqui</a> para atualizar.
 								</video>
 							</td>
 							<td>
 							<code><</code><code>video</code>
-							<code>width="100%"</code>
-							<code>controls></code><code><</code><code>source </code>
+							<code>id="myVideo" width="100%"</code>
+							<code>controls preload="auto" data-setup="{}"></code><code><</code><code>source </code>
 							<code>src="</code><code th:text="${link} + 'files/noticias/videos/' + ${d.titulo}"></code><code>"</code>
 							<code>type="video/</code><code th:text="${d.extensao}"></code><code>"></code>
-							<code>Seu navegador não possuir suporte HTML5 para vídeo</code>
+							<code>Seu navegador não possuir suporte HTML5 para vídeo, <a href="https://videojs.com/html5-video-support/" target="_blank">clique aqui</a> para atualizar.</code>
 							<code><</code><code>/video></code>							
 							</td>
 							<td colspan="3">

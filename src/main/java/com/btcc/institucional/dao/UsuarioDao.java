@@ -15,5 +15,7 @@ public interface UsuarioDao {
 	
 	List<Usuario> verifyLogin(Usuario usuario);
 	
+	Usuario findByName(String email);
+	
 	List<Usuario> findAll();
 }

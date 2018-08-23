@@ -18,7 +18,7 @@ import com.btcc.institucional.dao.NoticiaVideoDao;
 import com.btcc.institucional.domain.NoticiaVideo;
 
 @Service @Transactional(readOnly = false)
-public class NoticiaVideoServiceImpl implements NoticiaVideoService {
+public class NoticiaVideoServiceImpl extends AbstractService implements NoticiaVideoService {
 	
 	@Autowired
 	private NoticiaVideoDao dao;
@@ -65,13 +65,14 @@ public class NoticiaVideoServiceImpl implements NoticiaVideoService {
 				// Get the file and save it somewhere
 				byte[] bytes = file.getBytes();
 
-				setFilename(file, noticiaVideo);
+				setFilename(file);
 
 				Path path = Paths.get(getFilesPath() + getFilename());
 				Files.write(path, bytes);
 				
 				noticiaVideo.setTitulo(getFilename());
-
+				noticiaVideo.setExtensao(getFilename().substring(getFilename().lastIndexOf("."),getFilename().length()).substring(1));
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 				obj.add("fail");
@@ -96,17 +97,6 @@ public class NoticiaVideoServiceImpl implements NoticiaVideoService {
 		}
 
 		return false;
-	}
-
-	public String getFilename() {
-		return this.filename;
-	}
-
-	public void setFilename(MultipartFile file, NoticiaVideo noticiaVideo) {
-		String name = file.getOriginalFilename(); 
-		String ext = name.substring(name.lastIndexOf("."),name.length()); 
-		noticiaVideo.setExtensao(ext.substring(1));
-		this.filename = System.currentTimeMillis() + ext;
 	}
 
 	public String getFilesPath() {

@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<title>BTCC - Conex&atilde;o Cliente</title>
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Font Aewsome -->
+<link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+<!-- Hover -->
+<link href="/css/hover.min.css" rel="stylesheet" />
+
+<!-- Slick -->
+<link href="/webjars/slick/slick.css" rel="stylesheet" />
+<link href="/webjars/slick/slick-theme.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '385634168616753');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=385634168616753&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110374889-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110374889-1');
+</script>
+
 </head>
 <body>
 
+	<header th:replace="fragments/header :: cabecalho-site(${activeTab})">
+		<div>header</div>
+	</header>
+
+	<section id="access-denied">
+	</section>
+
+	<footer th:replace="fragments/footer :: rodape">
+		<div>footer</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->   
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="/webjars/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/webjars/jQuery-Mask-Plugin/src/jquery.mask.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/webjars/slick/slick.min.js"></script>
+	<!-- 	Custom Script -->
+	<script type="text/javascript" src="/js/script.js"></script>
+	<script type="text/javascript">
+		
+	</script>
 </body>
 </html>

@@ -18,4 +18,6 @@ public interface NoticiaDao {
 	List<Noticia> findBlockThreeNotice();
 	
 	List<Noticia> findAll();
+	
+	List<Noticia> findRelated(Long noticiaId, Long categoriaId);
 }

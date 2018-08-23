@@ -86,5 +86,6 @@ $(function () {
     /* Fuction with parameters where and what element will have the same height */
     sameHeight('.block-notice', '.retranca');
     sameHeight('.block-notice', '.title');
+    sameHeight('.relacionada', '.title');
 
 }); /* End Fn */

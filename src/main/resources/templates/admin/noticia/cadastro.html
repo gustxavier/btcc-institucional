@@ -43,6 +43,17 @@
 					</div>
 				</div>
 				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="nome">Categoria</label> 
+						<select id="categoria" th:field="*{categoria}" class="form-control">
+						<option value="">Selecione</option>
+						<optgroup label="--------------" th:if="${#lists.size(categorias)} > 0">
+							<option th:each="d : ${categorias}" th:value="${d.id}" th:text="${d.nome}">Opção</option>
+						</optgroup>
+						</select>
+					</div>
+				</div>
+				<div class="form-row">
 					<div class="form-group col-md-12">
 						<label for="nome">Resumo</label> <input type="text"
 							class="form-control" id="retranca" placeholder="Digite aqui o resumo"
