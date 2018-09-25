@@ -23,6 +23,10 @@ body {
 	max-width: 120px;
 }
 
+input.datepicker{
+	padding: .375rem .75rem
+}
+
 /*
  * main layout
  */

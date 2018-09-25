@@ -13,8 +13,9 @@
 
 <!-- Bootstrap core CSS -->
 <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
-	rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+<link href="/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+<link href="https://vjs.zencdn.net/7.1.0/video-js.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="/admin/css/style.css" rel="stylesheet" />
@@ -22,7 +23,6 @@
 <!-- Editor de texto -->
 <script type="text/javascript" src="/lib/ckeditor/ckeditor.js"></script>
 <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
-
 </head>
 <body>
 
@@ -56,6 +56,12 @@
 	<script type="text/javascript" src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.br.js"></script>
+    <script src="https://vjs.zencdn.net/7.1.0/video.js"></script>
+	
+	
+	
 	<script type="text/javascript">
 		var url = '';
 
@@ -73,6 +79,12 @@
 				$(".sidebar").toggleClass("sidebar-open");
 			})
 		});
+		
+        $('.datepicker').datepicker({
+            language: 'br',
+            format: 'yyyy-mm-dd',
+            todayHighlight: true
+        });	
 		
 	</script>
 </body>

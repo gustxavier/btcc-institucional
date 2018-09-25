@@ -12,11 +12,7 @@
 						<h1>
 							SEJA <br /> BEM-VINDO
 						</h1>
-						<p>A BTCC Conexão Cliente é uma empresa do Grupo Oi, que atua
-							no mercado de telecomunicações desde 2007 e é sinônimo de
-							excelência no atendimento. Investe na capacitação e motivação de
-							seus 12 mil colaboradores, para entregar os resultados com
-							qualidade.</p>
+						<p>Somos mais de 13 mil colaboradores e mais de 5 mil posições de atendimento prestando um serviço de qualidade ao cliente Oi. Nosso time oferece um atendimento diferenciado para o cliente com foco na solução e na construção de uma experiência memorável.</p>
 						<a href="/empresa" class="btn-btcc hvr-pop">CONHEÇA A BTCC</a>
 					</div>
 					<div class="col-md-6 col-xs-12 image first">
@@ -28,29 +24,55 @@
 
 		<section id="trabalhe-conosco" class="section">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-xs-12 col-xs-push-12 image">
-						<img id="random-trabalhe-conosco" />
+				<div class="desktop">
+					<div class="row">
+						<div class="col-md-6 col-xs-12 col-xs-push-12 image">
+							<img id="random-trabalhe-conosco" />
+						</div>
+						<div class="col-md-6 col-xs-12 col-xs-pull-12 text">
+							<h1>
+								VENHA <br /> TRABALHAR <br /> CONOSCO
+							</h1>
+							<p>Estamos sempre à procura de novos talentos para integrar
+								nosso time de colaboradores. Pessoas que tratam cada diálogo
+								como uma oportunidade para entregar soluções valiosas. Quer
+								fazer parte dessa conexão de sucesso? Confira o nosso banco de
+								vagas disponíveis.</p>
+							<a href="//btcc.referrals.selectminds.com/"
+								class="btn-btcc hvr-pop">VAGAS DISPONÍVEIS</a>
+							<div class="vagas-pcd">
+								<div class="col-md-10 col-xs-12">
+									<p class="vagas-pcd">TODAS AS VAGAS ESTÃO DISPONÍVEIS
+										TAMBÉM PARA PCD.</p>
+								</div>
+								<div class="col-md-2 col-xs-12">
+									<i class="fa fa-wheelchair" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-6 col-xs-12 col-xs-pull-12 text">
-						<h1>
-							VENHA <br /> TRABALHAR <br /> CONOSCO
-						</h1>
-						<p>Estamos sempre à procura de novos talentos para integrar
-							nosso time de colaboradores. Pessoas que tratam cada diálogo como
-							uma oportunidade para entregar soluções valiosas. Quer fazer
-							parte dessa conexão de sucesso? Confira o nosso banco de vagas
-							disponíveis.</p>
-						<a href="//btcc.referrals.selectminds.com/"
-							class="btn-btcc hvr-pop">VAGAS DISPONÍVEIS</a>
-						<div class="vagas-pcd">
-							<div class="col-md-10 col-xs-12">
-								<p class="vagas-pcd">TODAS AS VAGAS ESTÃO DISPONÍVEIS TAMBÉM
-									PARA PCD.</p>
+				</div>
+				<div class="mobile">
+					<div class="row">
+						<div class="col-md-6 col-xs-12 text">
+							<h1>
+								VENHA <br /> TRABALHAR <br /> CONOSCO
+							</h1>
+							<p>Presente em quatro estados do país, a BTCC conecta oportunidades, transmite valores e estabelece um diálogo de soluções para cada cliente.</p>
+							<a href="//btcc.referrals.selectminds.com/"
+								class="btn-btcc hvr-pop">VAGAS DISPONÍVEIS</a>
+							<div class="vagas-pcd">
+								<div class="col-xs-10">
+									<p class="vagas-pcd">TODAS AS VAGAS ESTÃO DISPONÍVEIS
+										TAMBÉM PARA PCD.</p>
+								</div>
+								<div class="col-xs-2">
+									<i class="fa fa-wheelchair" aria-hidden="true"></i>
+								</div>
 							</div>
-							<div class="col-md-2 col-xs-12">
-								<i class="fa fa-wheelchair" aria-hidden="true"></i>
-							</div>
+						</div>
+						<div class="col-md-6 col-xs-12 col-xs-push-12 image">
+							<img id="random-trabalhe-conosco-mobile" />
 						</div>
 					</div>
 				</div>
@@ -101,14 +123,15 @@
 			imageTrabalheConosco[2] = '/files/home/pessoa-trabalhe-conosco-3.png';
 
 			putImageRandom('random-trabalhe-conosco', imageTrabalheConosco);
+			putImageRandom('random-trabalhe-conosco-mobile', imageTrabalheConosco);
 
-			var imageTrabalheConosco = new Array();
-			imageTrabalheConosco[0] = '/files/home/pessoa-onde-estamos-1.png';
-			imageTrabalheConosco[1] = '/files/home/pessoa-onde-estamos-2.png';
-			imageTrabalheConosco[2] = '/files/home/pessoa-onde-estamos-3.png';
+			var imageOndeEstamos = new Array();
+			imageOndeEstamos[0] = '/files/home/pessoa-onde-estamos-1.png';
+			imageOndeEstamos[1] = '/files/home/pessoa-onde-estamos-2.png';
+			imageOndeEstamos[2] = '/files/home/pessoa-onde-estamos-3.png';
 
-			putImageRandom('random-onde-estamos', imageTrabalheConosco);
-
+			putImageRandom('random-onde-estamos', imageOndeEstamos);
+			
 			function putImageRandom(idTagImage, arrayImages) {
 				var size = arrayImages.length;
 				var x = Math.floor(size * Math.random());

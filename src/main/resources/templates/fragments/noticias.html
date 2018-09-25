@@ -84,7 +84,7 @@
 								<div class="col-md-9">
 									<h3 th:text="${a.retranca}" class="retranca"></h3>
 									<h2 th:text="${a.titulo}" class="title"></h2>								
-									<a th:href="@{/noticias/{id}/{titulo} (id=${noticia.id},titulo=${noticia.linkpermanente})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+									<a th:href="@{/noticias/{id}/{titulo} (id=${noticia[iterator.index].id},titulo=${noticia[iterator.index].linkpermanente})}" class="noticia-link" title="Ler Notícia">Ler a notícia <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 								</div>								
 								<div class="col-md-3">
 									<img th:src="@{'/files/noticias/' + ${a.imagem}}" /> 

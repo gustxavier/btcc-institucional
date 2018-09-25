@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/empresa",
                 "/premios",
                 "/intranet",
+                "/noticias",
                 "/noticias/**",
                 "/contato",
                 "/popup",

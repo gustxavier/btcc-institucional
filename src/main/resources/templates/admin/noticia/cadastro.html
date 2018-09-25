@@ -55,15 +55,15 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label for="nome">Resumo</label> <input type="text"
+						<label for="nome">Intertítulo</label> <input type="text"
 							class="form-control" id="retranca" placeholder="Digite aqui o resumo"
 							autofocus="autofocus" th:field="*{retranca}" />
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-2">
-						<label for="nome">Data</label> <input class="form-control mr-sm-2"
-							type="date" aria-label="Search" th:field="*{data}" />
+						<label for="nome">Data</label> <input class="form-control mr-sm-2 datepicker"
+							type="text" th:field="*{data}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
@@ -81,8 +81,9 @@
 			</form>
 		</div>
 		<script>
-		CKEDITOR.replace( 'editor-conteudo' );
-		
+		CKEDITOR.replace( 'editor-conteudo',{
+		    removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor,Unlink,Scayt,Preview,Save,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CreateDiv,Language,Flash,Iframe,About'
+		} );	
 		</script>
 	</section>
 </body>
